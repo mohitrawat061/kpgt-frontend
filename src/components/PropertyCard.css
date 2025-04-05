@@ -1,0 +1,83 @@
+.property-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.confidence-badge {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+}
+
+.property-value {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.value-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.value-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.property-gauge-container {
+  margin: 12px 0;
+}
+
+.property-gauge-track {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.property-gauge-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+}
+
+.property-explanation {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 12px 0;
+  line-height: 1.4;
+}
+
+.reference-range {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 8px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #777;
+}
