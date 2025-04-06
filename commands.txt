@@ -1,0 +1,2 @@
+npm install jspdf 
+npm install smiles-drawer@1.2.0 --save

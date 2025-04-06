@@ -135,6 +135,7 @@ function Prediction() {
             <option value="esol">Water Solubility (ESOL)</option>
             <option value="tox21">Toxicity (Tox21)</option>
             <option value="lipo">Lipophilicity (Lipo)</option>
+            <option value="lipo">Lipophilicity (Lipo)</option>
             <option value="binding_affinity">Binding Affinity</option>
             <option value="bioavailability">Bioavailability</option>
           </select>

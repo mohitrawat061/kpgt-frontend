@@ -1,15 +1,57 @@
-.property-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  padding: 16px;
+.property-card-container {
+  perspective: 1000px;
+  height: 320px;
   margin-bottom: 20px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
-.property-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.property-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.property-card-container.flipped .property-card-inner {
+  transform: rotateY(180deg);
+}
+
+.property-card-front,
+.property-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card-front {
+  background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+}
+
+.property-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #fcfcfc 0%, #f0f0f0 100%);
+  overflow-y: auto;
+}
+
+/* Separate hover effect that doesn't affect flip state */
+.property-card-container:not(.flipped):hover .property-card-inner {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.property-card-container.flipped:hover .property-card-inner {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-header {
@@ -80,4 +122,81 @@
   margin-top: 8px;
   font-size: 0.8rem;
   color: #777;
+}
+
+.flip-prompt {
+  text-align: center;
+  opacity: 0.7;
+  font-style: italic;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.flip-prompt small {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.property-details {
+  flex: 1;
+}
+
+.property-details h4 {
+  color: #333;
+  margin: 14px 0 6px 0;
+  font-size: 1rem;
+}
+
+.property-details p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.confidence-meter {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  transition: width 0.5s ease-out;
+  border-radius: 4px;
+}
+
+.confidence-text {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Add subtle shine effect on hover */
+.property-card-container:hover .property-card-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 1.5s;
+  z-index: 1;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
 }
